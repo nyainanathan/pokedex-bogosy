@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 .pokemon-container {
   display: flex;
   flex-wrap: wrap;
