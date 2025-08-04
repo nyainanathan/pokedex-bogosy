@@ -2,11 +2,13 @@ import { useEffect, useState } from "react"
 import SearchBar from "./SearchBar"
 import Card from "./Card";
 
+
 const CardsContainer = () => {
 
     const [pokemonList, setPokemonList] = useState([]);
     const [searchParams, setSearchParams] = useState("");
     const [researchedPokemon , setResearchedPokemon] = useState([]);
+    const [isInfoShown, setIsInfoShown] = useState(false);
 
     useEffect(() => {
         const fetchAllPokemons = async () => {
@@ -26,6 +28,7 @@ const CardsContainer = () => {
         setResearchedPokemon(newPokemons.slice(0,150))
     } , [searchParams, pokemonList])
 
+    
     return (
         <div className="h-fit w-screen flex flex-col items-center p-11" >
             <SearchBar onSearch={setSearchParams}/>
