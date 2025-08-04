@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react'
 
-const Card = props => {
+const Card = ({name, url}) => {
     const [pokemon, setPokemon] = useState(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchPokemon = async () => {
             try {
-                const response = await fetch(`https://pokeapi.co/api/v2/pokemon/` + props.id)
-                const data = await response.json()
-                setPokemon(data)
-                setLoading(false)
+              const response = await fetch(url)
+              const data = await response.json()
+              setPokemon(data)
+              setLoading(false)
             } catch (error) {
                 console.error('Error fetching Pokemon:', error)
                 setLoading(false)
@@ -18,29 +18,19 @@ const Card = props => {
         }
 
     fetchPokemon()
-    }, [props.id]);
+    } , [name, url]);
 
     if (loading) return <div>Loading...</div>
     if (!pokemon) return <div>Undefined</div>
 
-    const nbr_id = `N° ${props.id}`
+    const openInfo = () => {
+      
+    }
 
     return (
-    <div className="pokemon-card">
-      <img 
-        className="pokemon-image"
-        src={pokemon.sprites.front_default}
-    />
-      <div className="info">{nbr_id}</div>
-      <div className="info-name">{pokemon.name}</div>
-      
-      <div className="pokemon-types">
-        {pokemon.types.map((typeInfo) => (
-          <span>
-            {typeInfo.type.name}
-          </span>
-        ))}
-      </div>
+    <div onClick={openInfo} className='pokemon-cards w-1/7 p-1 flex flex-col justify-center items-center  bg-amber-50 h-1/4 rounded-2xl gap-1'>
+      <img className='pokemon-img h-full rounded-2xl' src={pokemon.sprites.front_default}/>
+      <div className="pokemon-name text-2xl">{name}</div>
     </div>
   )
 }

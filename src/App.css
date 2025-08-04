@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+.pokemon-cards{
+  background-color: #E4A5CA;
+}
+
+.pokemon-img{
+  background-color: #632713;
+}
+/*
 .pokemon-container {
   display: flex;
   flex-wrap: wrap;
