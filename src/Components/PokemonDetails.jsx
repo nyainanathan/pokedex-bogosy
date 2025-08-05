@@ -25,26 +25,41 @@ const PokemonDetails = () => {
   if (loading) return <div>Loading...</div>;
   if (!pokemon) return <div>Pokemon not found</div>;
 
+  const types = pokemon.types.map((type) => type.type.name);
+  const abilities = pokemon.abilities.map((a) => a.ability.name);
+
   return (
     <div className="flex flex-col items-center p-10 bg-amber-50 min-h-screen">
       <button
-        className="mb-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        className="mb-6 px-4 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 shadow"
         onClick={() => navigate('/')}
       >
         Back to Home
       </button>
-      <h1 className="text-4xl font-bold capitalize mb-4">{pokemon.name}</h1>
-      <img
-        className="w-48 h-48 rounded-2xl mb-4"
-        src={pokemon.sprites.front_default}
-        alt={pokemon.name}
-      />
-      <div className="text-lg">
-        <p><strong>Height:</strong> {pokemon.height / 10} m</p>
-        <p><strong>Weight:</strong> {pokemon.weight / 10} kg</p>
-        <p><strong>Types:</strong> {pokemon.types.map((type) => type.type.name).join(', ')}</p>
-        <p><strong>Abilities:</strong> {pokemon.abilities.map((ability) => ability.ability.name).join(', ')}</p>
-        <p><strong>Base Experience:</strong> {pokemon.base_experience}</p>
+      <div className="bg-white p-6 rounded-xl shadow-xl w-full max-w-md text-center">
+        <h1 className="text-4xl font-bold capitalize mb-4">{pokemon.name}</h1>
+        <img
+          className="w-40 h-40 object-contain mx-auto mb-4"
+          src={pokemon.sprites.front_default}
+          alt={pokemon.name}
+        />
+        <div className="space-y-2 text-lg">
+          <p><span className="font-semibold">Height:</span> {pokemon.height / 10} m</p>
+          <p><span className="font-semibold">Weight:</span> {pokemon.weight / 10} kg</p>
+          <p>
+            <span className="font-semibold">Types:</span>{' '}
+            {types.map((type) => (
+              <span
+                key={type}
+                className={`inline-block mx-1 px-2 py-1 rounded-full text-xs font-bold bg-opacity-20 bg-${type}-500 text-${type}-700`}
+              >
+                {type}
+              </span>
+            ))}
+          </p>
+          <p><span className="font-semibold">Abilities:</span> {abilities.join(', ')}</p>
+          <p><span className="font-semibold">Base Experience:</span> {pokemon.base_experience}</p>
+        </div>
       </div>
     </div>
   );
