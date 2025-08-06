@@ -1,48 +1,63 @@
 @import "tailwindcss";
 
-.pokemon-cards{
-  background-color: #E4A5CA;
+
+
+.pokemon-cards {
+  
+  border-radius: 2%;
+  width: 70%;
+  margin: auto;
+  transition: border 0.5s ease;
+  border: 0.1% solid transparent;
+  text-align: center;
 }
 
-.pokemon-img{
-  background-color: #632713;
+.pokemon-img {
+  width: 60%;
+  height: 15vh;
+  margin: auto;
 }
-/*
+
+.pokemon-cards:hover {
+  border: 0.1% solid gold;
+}
+
 .pokemon-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
-  padding: 20px;
+  gap: 2%;
+  padding: 2%;
 }
 
-.pokemon-card {
-  width: 200px;
-  background: white;
+.pokemon-types {
+  display: flex;
+  margin: auto;
+  justify-content: space-around;
+  font-size: 0.2vw;
+  padding-left: 1vw;
+}
+
+span {
+  margin: 1% 0 0;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.info {
+  margin: 1% 0 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.info-name {
+  font-size: 2vw;
+  padding-left: 3vw;
+}
+
+.Next{
+  background-color: gold;
+  padding: 1ch;
+  width: 7%;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 15px;
-}
-
-.pokemon-image {
-  width: 200px;
-  height: 200px;
-}
-.pokemon-types{
-    display:flex;
-    gap:4vw;
-    padding-left: 1vw;
-}
-span{
-    margin: 10px 0 0;
-    font-size: 1.2rem;
-    color: #333;
-}
-.info{
-    margin: 10px 0 0;
-    font-size: 1.2rem;
-    color: #333;
-}
-.info-name{
-    font-size: 2vw;
-    padding-left: 3vw;
+  border: #001d3d 2px solid;
 }
