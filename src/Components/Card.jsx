@@ -50,7 +50,7 @@ const Card = ({ name, url }) => {
     <div
       onClick={() => navigate(`/pokemon/${name}`)}
       className="cursor-pointer card-container p-5 rounded-xl border-2 border-transparent hover:border-yellow-400 hover:scale-105 hover:shadow-xl transition-all duration-300 ease-in-out"
-        
+       style={{backgroundColor:'#000814'}} 
     >
       <img
         className="w-[150px] h-[150px] mx-auto"
@@ -58,7 +58,7 @@ const Card = ({ name, url }) => {
         alt={name}
       />
 
-      <div className="text-center font-semibold mt-4 text-md capitalize">
+      <div style={{color:'white'}} className="text-center font-semibold mt-4 text-md capitalize">
         #{pokemon.id} - {name}
       </div>
 
@@ -80,3 +80,4 @@ const Card = ({ name, url }) => {
 }
 
 export default Card
+
