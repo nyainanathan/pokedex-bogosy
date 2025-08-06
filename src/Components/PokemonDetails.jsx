@@ -29,7 +29,7 @@ const PokemonDetails = () => {
     <>
     <div>
 
-    <div style={{margin:'auto',marginTop:'2ch' , border:'2px solid gold',width:'20%', textAlign:'center',backgroundColor:'#1d2d44' ,borderRadius:'20px', }}>
+    <div style={{margin:'auto',marginTop:'25ch' , border:'2px solid gold',width:'20%', textAlign:'center',backgroundColor:'#000814',color:'white',boxShadow:'0px 0px 10px black' ,borderRadius:'20px', }}>
       
       <h1 className="text-4xl font-bold capitalize mb-4">{pokemon.name}</h1>
       <img
@@ -59,3 +59,4 @@ const PokemonDetails = () => {
 };
 
 export default PokemonDetails;
+
